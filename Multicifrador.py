@@ -6,7 +6,7 @@ abecedario=("abcdefghijklmnñopqrstuvwxyz")
 
 
 # Cesar funciones
-def cesCifra(texto,desplazamiento):
+def cesCifraD(texto,desplazamiento):
     resultado = ""
     # Recorre el texto plano
     for i in range(len(texto)):
@@ -20,9 +20,27 @@ def cesCifra(texto,desplazamiento):
             resultado += chr((ord(char) + desplazamiento - 97) % 26 + 97)
     return resultado
 
-def cesDescifra(texto_cifrado, desplazamiento):
+def cesCifraI(texto,desplazamiento):
+    resultado = ""
+    # Recorre el texto plano
+    for i in range(len(texto)):
+        char = texto[i]
+        # Cifra las mayusculas en el texto
+        
+        if (char.isupper()):
+            resultado += chr((ord(char) - desplazamiento - 65) % 26 + 65)
+        # Cifra las minusculas en el texto
+        else:
+            resultado += chr((ord(char) - desplazamiento - 97) % 26 + 97)
+    return resultado
+
+def cesDescifraD(Dtexto_cifrado, desplazamiento):
     # Simplemente cifrar el texto cifrado con el desplazamiento negativo
-    return cesCifra(texto_cifrado, -desplazamiento)
+    return cesCifraD(texto_cifrado, -desplazamiento)
+
+def cesDescifraI(Itexto_cifrado, desplazamiento):
+    # Simplemente cifrar el texto cifrado con el desplazamiento negativo
+    return cesCifraI(texto_cifrado, + desplazamiento)
 
 # Polybios funciones
 def poCifra(mensaje):
@@ -106,26 +124,56 @@ def main():
         #Opciones de Cesar
         if (opt1==1):
             print ("|--------------|")
-            print ("|  Cesar    |")
+            print ("|    Cesar     |")
             print ("|  1 Cifrar    |")
             print ("|  2 Descifrar |")
             print ("|--------------|")
             opt2=int(input("Ingrese la opción: "))
 
+            #Cifrado
             if (opt2==1):
-                #Cifrado sin espacios porque le da amsieda
-                c = input("Ingrese el mensaje a cifrar sin espacios:")
-                d = int(input("Ingrese el numero de desplazamiento: "))
-                c = c.lower()
-                cifra = cesCifra(c, d)
-                print("El mensaje cifrado es: ",cifra)
+                print ("|------------------------------|")
+                print ("| Hacia que lado desea cifrar? |")
+                print ("|          1 Derecha           |")
+                print ("|         2 Izquierda          |")
+                print ("|------------------------------|")
+                opt3=int(input("Ingrese la opción: "))
+                if (opt3==1):
+                    c = input("Ingrese el mensaje a cifrar sin espacios:")
+                    d = int(input("Ingrese el numero de desplazamiento: "))
+                    c = c.lower()
+                    cifra = cesCifraD(c, d)
+                    print("El mensaje cifrado es: ",cifra)
+                    
+                if (opt3==2):
+                    c = input("Ingrese el mensaje a cifrar sin espacios:")
+                    d = int(input("Ingrese el numero de desplazamiento: "))
+                    c = c.lower()
+                    cifra = cesCifraI(c, d)
+                    print("El mensaje cifrado es: ",cifra)
+
             if (opt2==2):
-                #Decifrado
-                c = input("Ingrese el mensaje a descifrar sin espacios:")
-                d = int(input("Ingrese el numero de desplazamiento: "))
-                c = c.lower()
-                descifra = cesDescifra(c, d)
-                print("El mensaje decifrado es: ", descifra)
+                print ("|--------------------------------|")
+                print ("| Hacia que lado desea decifrar? |")
+                print ("|           1 Derecha            |")
+                print ("|          2 Izquierda           |")
+                print ("|--------------------------------|")
+                opt3=int(input("Ingrese la opción: "))
+                    #Decifrado derecha
+                if(opt3==1):
+                    c = input("Ingrese el mensaje a descifrar sin espacios:")
+                    d = int(input("Ingrese el numero de desplazamiento: "))
+                    c = c.lower()
+                    descifra = cesDescifraD(c, d)
+                    print("El mensaje decifrado es: ", descifra)
+
+                    #DEcifrado izqueirda
+                if(opt3==2):
+                    c = input("Ingrese el mensaje a descifrar sin espacios:")
+                    d = int(input("Ingrese el numero de desplazamiento: "))
+                    c = c.lower()
+                    descifra = cesDescifraI(c, d)
+                    print("El mensaje decifrado es: ", descifra)
 
 
         # Opciones de Polybios
