@@ -167,7 +167,7 @@ def main():
                     descifra = cesDescifraD(c, d)
                     print("El mensaje decifrado es: ", descifra)
 
-                    #DEcifrado izqueirda
+                    #Decifrado Izquierda
                 if(opt3==2):
                     c = input("Ingrese el mensaje a descifrar sin espacios:")
                     d = int(input("Ingrese el numero de desplazamiento: "))
