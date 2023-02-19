@@ -4,7 +4,6 @@ import os
 # Se crea una constate de el abecedario 
 abecedario=("abcdefghijklmnñopqrstuvwxyz")
 
-
 # Cesar funciones
 def cesCifraD(texto,desplazamiento):
     resultado = ""
@@ -36,11 +35,11 @@ def cesCifraI(texto,desplazamiento):
 
 def cesDescifraD(Dtexto_cifrado, desplazamiento):
     # Simplemente cifrar el texto cifrado con el desplazamiento negativo
-    return cesCifraD(texto_cifrado, -desplazamiento)
+    return cesCifraD(Dtexto_cifrado, - desplazamiento)
 
 def cesDescifraI(Itexto_cifrado, desplazamiento):
     # Simplemente cifrar el texto cifrado con el desplazamiento negativo
-    return cesCifraI(texto_cifrado, + desplazamiento)
+    return cesCifraI(Itexto_cifrado, + desplazamiento)
 
 # Polybios funciones
 def poCifra(mensaje):
@@ -138,13 +137,15 @@ def main():
                 print ("|         2 Izquierda          |")
                 print ("|------------------------------|")
                 opt3=int(input("Ingrese la opción: "))
+                #Cifrado derecha
                 if (opt3==1):
                     c = input("Ingrese el mensaje a cifrar sin espacios:")
                     d = int(input("Ingrese el numero de desplazamiento: "))
                     c = c.lower()
                     cifra = cesCifraD(c, d)
                     print("El mensaje cifrado es: ",cifra)
-                    
+
+                #Decifrado izquierda   
                 if (opt3==2):
                     c = input("Ingrese el mensaje a cifrar sin espacios:")
                     d = int(input("Ingrese el numero de desplazamiento: "))
@@ -152,6 +153,7 @@ def main():
                     cifra = cesCifraI(c, d)
                     print("El mensaje cifrado es: ",cifra)
 
+            #Decifrado
             if (opt2==2):
                 print ("|--------------------------------|")
                 print ("| Hacia que lado desea decifrar? |")
@@ -159,7 +161,7 @@ def main():
                 print ("|          2 Izquierda           |")
                 print ("|--------------------------------|")
                 opt3=int(input("Ingrese la opción: "))
-                    #Decifrado derecha
+                #Decifrado derecha
                 if(opt3==1):
                     c = input("Ingrese el mensaje a descifrar sin espacios:")
                     d = int(input("Ingrese el numero de desplazamiento: "))
